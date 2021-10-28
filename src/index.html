@@ -10,9 +10,13 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
     />
     <link rel="stylesheet" href="css/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <form class="search-form" id="search-form">
+    <form class="search-form js-search-form" id="search-form">
       <input
         type="text"
         name="query"
@@ -22,6 +26,19 @@
       />
       <button type="submit" class="search-button">Search</button>
     </form>
+    <div class="image-container">
+      <ul class="gallery js-gallery">
+        <!-- Список <li> с карточками изображений -->
+      </ul>
+    </div>
+    <button
+      type="button"
+      class="load-more-button visually-hidden"
+      data-action="load-more"
+    >
+      Load more
+    </button>
+    <a href="#search-form" class="to-up-button visually-hidden">Up</a>
     <script src="index.js"></script>
   </body>
 </html>
