@@ -3,4 +3,5 @@ export default {
   gallery: document.querySelector(".js-gallery"),
   loadMoreBtn: document.querySelector('[data-action="load-more"]'),
   toUpBtn: document.querySelector(".to-up-button"),
+  input: document.querySelector(".search-input"),
 };

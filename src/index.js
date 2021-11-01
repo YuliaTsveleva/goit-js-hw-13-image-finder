@@ -2,16 +2,11 @@ import ImagesApiService from "./js/apiService.js";
 import imageTemplate from "./templates/image-card-template.hbs";
 import refs from "./js/refs.js";
 
-// const refs = {
-//   searchForm: document.querySelector(".js-search-form"),
-//   gallery: document.querySelector(".js-gallery"),
-//   loadMoreBtn: document.querySelector('[data-action="load-more"]'),
-// };
-
 const imagesApiService = new ImagesApiService();
 
 refs.searchForm.addEventListener("submit", onSearch);
 refs.loadMoreBtn.addEventListener("click", onLoadMore);
+refs.toUpBtn.addEventListener("click", toClearInput);
 
 function onSearch(e) {
   e.preventDefault();
@@ -29,6 +24,7 @@ function onLoadMore() {
 
 function appendImagesMarkup(hits) {
   refs.gallery.insertAdjacentHTML("beforeend", imageTemplate(hits));
+  toScroll();
 }
 
 function clearGallery() {
@@ -37,6 +33,17 @@ function clearGallery() {
 
 function showLoadMoreBtn() {
   refs.loadMoreBtn.classList.remove("visually-hidden");
+}
+
+function toScroll() {
+  refs.loadMoreBtn.scrollIntoView({
+    behavior: "smooth",
+    block: "end",
+  });
+}
+
+function toClearInput() {
+  refs.input.value = "";
 }
 
 function showToUpBtn() {
